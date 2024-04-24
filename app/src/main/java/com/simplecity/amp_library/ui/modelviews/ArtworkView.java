@@ -105,6 +105,16 @@ public class ArtworkView extends BaseViewModel<ArtworkView.ViewHolder> {
         holder.progressBar.setVisibility(View.VISIBLE);
         holder.lineTwo.setText(null);
 
+        public class BitmapAndSize {
+            private Size size;
+        
+            // Constructor and other methods
+        
+            public Size getSize() {
+                return size;
+            }
+        }
+
         Glide.with(holder.itemView.getContext())
                 .using(new TypeLoader(holder.itemView.getContext(), type, file), InputStream.class)
                 .from(ArtworkProvider.class)
@@ -130,12 +140,12 @@ public class ArtworkView extends BaseViewModel<ArtworkView.ViewHolder> {
                         return false;
                     }
                 })
-                .into(new ImageViewTarget<BitmapAndSize>(((ViewHolder) holder).imageView) {
+                .into(new ImageViewTarget<BitmapAndSize>(holder.imageView) {
                     @Override
                     protected void setResource(BitmapAndSize resource) {
                         holder.textContainer.setBackgroundResource(R.drawable.text_protection_scrim_reversed);
                         holder.progressBar.setVisibility(View.GONE);
-
+                
                         holder.imageView.setImageBitmap(resource.bitmap);
                         holder.lineTwo.setText(String.format("%sx%spx", resource.size.width, resource.size.height));
                     }

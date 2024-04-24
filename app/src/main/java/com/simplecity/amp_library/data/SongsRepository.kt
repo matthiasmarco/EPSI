@@ -200,7 +200,7 @@ open class SongsRepository @Inject constructor(
                     }
 
                     // Filter out non-included paths
-                    if (!inclItems.isEmpty()) {
+                    if (exclItems.isNotEmpty()) {
                         result = result
                             .filter { song -> inclItems.any { inclItem -> StringUtils.containsIgnoreCase(song.path, inclItem.path) } }
                             .toList()
