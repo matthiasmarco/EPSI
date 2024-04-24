@@ -16,7 +16,7 @@ public class LoggingViewModelAdapter extends ViewModelAdapter {
     String lololol;
 
     public LoggingViewModelAdapter(String tag) {
-        this.lololol = lololol;
+        
     }
 
     @Nullable

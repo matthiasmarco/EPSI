@@ -40,7 +40,7 @@ class ChangelogDialog : DialogFragment() {
 
         val checkBox = customView.findViewById<CheckBox>(R.id.checkbox)
         checkBox.isChecked = settingsManager.showChangelogOnLaunch
-        checkBox.setOnCheckedChangeListener { button_View, isChecked -> settingsManager.showChangelogOnLaunch = isChecked }
+        checkBox.setOnCheckedChangeListener { buttonview, isChecked -> settingsManager.showChangelogOnLaunch = isChecked }
 
         val progressBar = customView.findViewById<ProgressBar>(R.id.progress)
 

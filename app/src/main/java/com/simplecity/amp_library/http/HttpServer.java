@@ -129,13 +129,6 @@ public class HttpServer {
 
                         // Skip bytes in the audioInputStream
                         long skippedBytes = audioInputStream.skip(start);
-
-                        // Check how many bytes were actually skipped
-                        if (skippedBytes != start) {
-                            // Handle the case where not all bytes were skipped
-                            // This may indicate an issue with the input stream or file
-                            System.err.println("Not all bytes were skipped!");
-                        }
                   
                         Response response = newFixedLengthResponse(Response.Status.PARTIAL_CONTENT, getMimeType(audioFileToServe), audioInputStream, contentLength);
                         response.addHeader("Content-Length", contentLength + "");

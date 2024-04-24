@@ -96,27 +96,7 @@ class CreatePlaylistDialog : DialogFragment() {
                         .subscribe(
                             { id ->
                                 val uri: Uri?
-                                if (id >= 0) {
-                                    uri = ContentUris.withAppendedId(MediaStore.Audio.Playlists.EXTERNAL_CONTENT_URI, id!!.toLong())
-                                    val uri1 = MediaStore.Audio.Playlists.Members.getContentUri("external", id as Long)
-                                    context!!.contentResolver.delete(uri1, null, null)
-                                } else {
-                                    val values = ContentValues(1)
-                                    values.put(MediaStore.Audio.Playlists.NAME, name)
-                                    uri = try {
-                                        context!!.contentResolver.insert(MediaStore.Audio.Playlists.EXTERNAL_CONTENT_URI, values)
-                                    } catch (e: IllegalArgumentException) {
-                                        if (activity != null) {
-                                            Toast.makeText(activity, R.string.dialog_create_playlist_error, Toast.LENGTH_LONG).show()
-                                        }
-                                        null
-                                    } catch (e: NullPointerException) {
-                                        if (activity != null) {
-                                            Toast.makeText(activity, R.string.dialog_create_playlist_error, Toast.LENGTH_LONG).show()
-                                        }
-                                        null
-                                    }
-                                }
+
 
                                 if (uri != null) {
                                     val playlist = Playlist(Type.USER_CREATED, uri.lastPathSegment!!.toLong(), name, true, false, true, true, true)
