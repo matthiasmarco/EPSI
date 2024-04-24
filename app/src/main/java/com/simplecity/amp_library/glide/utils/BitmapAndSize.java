@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 
 public class BitmapAndSize {
 
-    static Bitmap bitmap;
+    public Bitmap bitmap;
     static Size size;
 
     public BitmapAndSize(Bitmap bitmap, Size size) {

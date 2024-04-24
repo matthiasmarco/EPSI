@@ -218,7 +218,10 @@ public class ShuttleApplication extends DaggerApplication {
         try {
             return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException | NullPointerException ignored) {
-
+            // This block of code is intentionally left empty.
+            // If you want to handle the exception, you can add
+            // appropriate error handling logic here.
+            return "unknown";
         }
         return "unknown";
     }
