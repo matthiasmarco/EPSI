@@ -20,6 +20,11 @@ import android.graphics.Bitmap;
 
 public class FastBlur {
 
+
+    private FastBlur() {
+        // Private constructor to prevent instantiation
+    }
+
     public static Bitmap blur(Bitmap sentBitmap, int radius, boolean canReuseInBitmap) {
 
         // Stack Blur v1.0 from

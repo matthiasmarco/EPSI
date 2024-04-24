@@ -93,9 +93,6 @@ public class Equalizer {
          * Session-specific virtualizer
          */
         private Virtualizer virtualizer;
-
-        //        private final PresetReverb mPresetReverb;
-
         private short mEqNumPresets = -1;
         private short mEqNumBands = -1;
 

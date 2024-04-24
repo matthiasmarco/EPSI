@@ -74,7 +74,7 @@ public class ShuttleApplication extends DaggerApplication {
 
     private RefWatcher refWatcher;
 
-    public static HashMap<String, UserSelectedArtwork> userSelectedArtwork = new HashMap<>();
+    public static Map<String, UserSelectedArtwork> userSelectedArtwork = new HashMap<>();
 
     private static Logger jaudioTaggerLogger1 = Logger.getLogger("org.jaudiotagger.audio");
     private static Logger jaudioTaggerLogger2 = Logger.getLogger("org.jaudiotagger");
@@ -101,12 +101,10 @@ public class ShuttleApplication extends DaggerApplication {
             // You should not init your app in this process.
             return;
         }
-
-        // Todo: Remove for production builds. Useful for tracking down crashes in beta.
+        
         RxDogTag.install();
 
         if (BuildConfig.DEBUG) {
-            // enableStrictMode();
         }
 
         refWatcher = LeakCanary.install(this);
