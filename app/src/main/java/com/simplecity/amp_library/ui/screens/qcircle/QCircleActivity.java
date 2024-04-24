@@ -52,8 +52,9 @@ public class QCircleActivity extends BaseActivity {
     // [END] QuickCircle info.
 
     // -------------------------------------------------------------------------------
-    private final boolean DEBUG = true;
-    private final String TAG = "QCircleActivity";
+
+    private static final boolean DEBUG = true;
+    private static final String TAG = "QCircleActivity";
     int mQuickCoverState = 0;
     Context mContext;
     private Window win = null;
@@ -181,12 +182,6 @@ public class QCircleActivity extends BaseActivity {
 
         Log.d(TAG, "initializeViewInformationFromDB");
 
-        //Check the availability of the case
-        quickCircleEnabled = Settings.Global.getInt(contentResolver,
-                QUICKCOVERSETTINGS_QUICKCOVER_ENABLE, 0) == 0;
-        if (DEBUG) {
-            Log.d(TAG, "quickCircleEnabled:" + quickCircleEnabled);
-        }
 
         //[START] Get the QuickCircle window information
         int id = getResources().getIdentifier("config_circle_window_width", "dimen",

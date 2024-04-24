@@ -91,7 +91,7 @@ abstract class LocalPlayback(context: Context) : Playback {
 
     override fun willResumePlayback(): Boolean {
         // Fixme: This returns true even after manually pausing playback. This should not be the case.
-        return playOnFocusGain
+        return true
     }
 
     @CallSuper

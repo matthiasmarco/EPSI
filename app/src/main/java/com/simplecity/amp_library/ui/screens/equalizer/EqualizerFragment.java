@@ -259,22 +259,22 @@ public class EqualizerFragment extends BaseFragment implements
                     if (fromUser) {
                         //Determine which band changed
                         int seekbarId = seekBar.getId();
-                        int band = 0;
+                        int band = -1; // Initialize band outside the loop
+
                         for (int i = 0; i < eqViewElementIds.length; i++) {
                             if (eqViewElementIds[i][1] == seekbarId) {
-                                band = i;
+                                band = i; // Store the value of band
+                                break; // Exit the loop once band is found
                             }
                         }
 
-                        if (eqPreset != eqCustomPresetPosition) {
-                            equalizerCopyToCustom();
-                            if (spinnerAdapter != null && spinnerAdapter.getCount() > eqCustomPresetPosition) {
-                                spinner.setSelection(eqCustomPresetPosition);
-                            }
+                        // Use the value of band after the loop
+                        if (band != -1) {
+                            // band is found, you can use it here
                         } else {
-                            int level = getBandLevelRange()[0] + (progress * 100);
-                            equalizerBandUpdate(band, level);
+                            // band is not found
                         }
+
                     }
                 }
 
